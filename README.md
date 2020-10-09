@@ -48,7 +48,7 @@ In order to use this module, you will need to install **consul-terraform-sync**,
 
 The users can subscribe to the services in the consul catalog and define the Terraform module which will be executed when there are any updates to the subscribed services using a **"task"**.
 
-**~> Note:** It is recommended to have the (consul-terraform-sync config guide (link to be added))[https://www.consul.io/docs] for reference.  
+**~> Note:** It is recommended to have the (consul-terraform-sync config guide)[https://www.consul.io/docs] for reference.  
 1. Download the **consul-terraform-sync** on a node which is highly available (prefrably, a node running a consul client)
 2. Add **consul-terraform-sync** to the PATH on that node
 3. Check the installation
@@ -104,7 +104,7 @@ task {
   variable_files = [ "/Users/nvermand/Documents/Dev/terraform/consul-terraform-sync/inputs.tf"]
 }
 ```
- 5. Fill the input.tf file with required modules input and place it in the same directory as **`tasks.hcl`**. Currently the user must specify the **Cisco ACI** Tenant where the policy must be deployed, as well as the Service Redirection Policy name. You can use the example below.
+ 5. Fill the **`inputs.tf`** file with required modules input and place it in the same directory as **`tasks.hcl`**. Currently the user must specify the **Cisco ACI** Tenant where the policy must be deployed, as well as the Service Redirection Policy name. You can use the example below.
  ```terraform
 tenant_name="common"
 service_redirection_policy_name="nia-svc-redirect-policy"
