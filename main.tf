@@ -12,7 +12,7 @@ resource "aci_service_redirect_policy" "this" {
 
 resource "aci_destination_of_redirected_traffic" "this" {
   for_each                   = var.services
-  dest_name                  = each.value.name
+  dest_name                  = each.value.id
   service_redirect_policy_dn = aci_service_redirect_policy.this.id
   ip                         = each.value.address == "" ? each.value.node_address : each.value.address
   mac                        = each.value.meta.mac_address
