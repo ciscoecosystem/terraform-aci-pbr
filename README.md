@@ -127,8 +127,8 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 
 | Name | Description | Type | Default | Required |
 |------|-------------------------------------|------|---------|:--------:|
-| aci\_tenant | Cisco ACI Tenant name, e.g., prod_tenant | `string` | common | yes |
-| service\_redirection\_policy\_name | Name of the service redirection policy that is created when the first service instance is declared in the Consul catalog | `string` |  | no |
+| aci\_tenant | Cisco ACI Tenant name, e.g., prod_tenant. | `string` | common | yes |
+| service\_redirection\_policy\_name | Name of the service redirection policy that is created when the first service instance is declared in the Consul catalog. | `string` |  | no |
 | services | Consul services monitored by consul-terraform-sync | <pre>map(<br>    object({<br>      id        = string<br>      name      = string<br>      address   = string<br>      port      = number<br>      meta      = map(string)<br>      tags      = list(string)<br>      namespace = string<br>      status    = string<br><br>      node                  = string<br>      node_id               = string<br>      node_address          = string<br>      node_datacenter       = string<br>      node_tagged_addresses = map(string)<br>      node_meta             = map(string)<br>    })<br>  )</pre> | n/a | yes |
 
 
@@ -136,7 +136,7 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 
 | Name | Description |
 |------|-------------|
-| workload_pool | Map that includes information about the created redirection destination policies, namely instance name, service name, IP and MAC addresses  |
+| workload_pool | Map that includes information about the created redirection destination policies, namely instance name, service name, IP and MAC addresses.  |
 
 ## How does consul-terraform-sync work?
 
