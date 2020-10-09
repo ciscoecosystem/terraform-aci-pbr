@@ -1,11 +1,3 @@
-provider "aci" {
-  username    = var.username
-  private_key = var.private_key
-  cert_name   = var.cert_name
-  url         = var.url
-  insecure    = true
-}
-
 data "aci_tenant" "this" {
   name = var.tenant_name
 }

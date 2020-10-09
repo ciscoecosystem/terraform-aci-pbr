@@ -21,9 +21,5 @@ variable "services" {
   )
 }
 
-variable "username" {}
-variable "url" {}
-variable "private_key" {}
-variable "cert_name" {}
 variable "tenant_name" {}
 variable "service_redirection_policy_name" {}
