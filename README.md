@@ -12,7 +12,8 @@ Using this Terraform module in conjunction with **consul-terraform-sync** enable
 ## Feature
 This module supports the following:
 * Create, Update and Delete Redirection Destination Policies (**vnsRedirectDest**)
-* Create and Update Service Redirection Policies (**vnsSvcRedirectPol**). Currently, the integration doesn't allow the user to delete Service Redirection Policies.  
+* Create and Update Service Redirection Policies (**vnsSvcRedirectPol**). Currently, the integration doesn't allow the user to delete Service Redirection Policies.   
+
 If there is a missing feature or a bug - - [open an issue ](https://github.com/CiscoDevNet/aci-nia-autoscaling/issues/new)
 
 ## What is consul-terraform-sync?
