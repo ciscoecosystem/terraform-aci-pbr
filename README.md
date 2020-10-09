@@ -115,7 +115,7 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 ```
 **consul-terraform-sync** will create the appropriate policies in accordance to the Consul catalog.
 
-**consul-terraform-sync is now subscribed to the Consul catalog. Any updates to the services identified in the task will result in updating the **Cisco ACI** Redirection Destination Policies.
+**consul-terraform-sync** is now subscribed to the Consul catalog. Any updates to the services identified in the task will result in updating the **Cisco ACI** Redirection Destination Policies.
 
 
 **~> Note:** If you are interested in how **consul-terraform-sync** works, please refer to this [section](#how-does-consul-terraform-sync-work).
