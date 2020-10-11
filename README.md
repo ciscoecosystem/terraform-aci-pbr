@@ -239,15 +239,15 @@ If a task and is defined, one or more services are associated with the task, pro
             username    = var.aci.username
           }
       
-      # Automatically Scale ACI Service Redirection Destinations
-      module "aci-svc-scale" {
-        source   = "CiscoDevNet/aci-nia-autoscaling"
-        version  = "0.0.1"
-        services = var.services
-      
-        service_redirection_policy_prefix = var.service_redirection_policy_prefix
-        tenant_name                       = var.tenant_name
-      }
+         # Automatically Scale ACI Service Redirection Destinations
+         module "aci-svc-scale" {
+           source   = "CiscoDevNet/aci-nia-autoscaling"
+           version  = "0.0.1"
+           services = var.services
+
+           service_redirection_policy_prefix = var.service_redirection_policy_prefix
+           tenant_name                       = var.tenant_name
+         }
          
       * **variables.tf:**
         * This is variables.tf file defined in the module
