@@ -14,7 +14,7 @@ This module supports the following:
 * Create, Update and Delete Redirection Destination Policies (**vnsRedirectDest**)
 * Create and Update Service Redirection Policies (**vnsSvcRedirectPol**). 
 
-If there is a missing feature or a bug - - [open an issue ](https://github.com/CiscoDevNet/aci-nia-autoscaling/issues/new)
+If there is a missing feature or a bug - - [open an issue ](https://github.com/CiscoDevNet/terraform-aci-autoscaling-nia/issues/new)
 
 ## Caveats
 * Currently Consul nodes MAC address must be specified as `meta` in the Consul service definition
@@ -104,7 +104,7 @@ service {
 task {
   name = "aci-svc-scale"
   description = "Automatically Scale ACI Service Redirection Destinations"
-  source = "CiscoDevNet/aci-nia-autoscaling"
+  source = "CiscoDevNet/terraform-aci-autoscaling-nia"
   version = "0.0.1"
   providers = ["aci.aci1"]
   services = ["frontend"]
@@ -246,7 +246,7 @@ If a task and is defined, one or more services are associated with the task, pro
       
          # Automatically Scale ACI Service Redirection Destinations
          module "aci-svc-scale" {
-           source   = "CiscoDevNet/aci-nia-autoscaling"
+           source   = "CiscoDevNet/terraform-aci-autoscaling-nia"
            version  = "0.0.1"
            services = var.services
 
