@@ -48,7 +48,7 @@ Please refer to this [link (to be updated)](https://www.consul.io/docs/download-
 
 
 ## Compatibility
-This module is meant for use with **consul-terraform-sync >= 0.1.0**, **Terraform >= 0.13** and **Cisco ACI versions >= 4.2**
+This module is meant for use with **consul-terraform-sync >= 0.1.0**, **Terraform >= 0.13** and **Cisco ACI >= 4.2**
 
 ## Usage
 In order to use this module, you will need to install **consul-terraform-sync**, create a **"task"** with this Terraform module as a source within the task, and run **consul-terraform-sync**.
@@ -111,10 +111,10 @@ task {
   variable_files = [ "/Users/nvermand/Documents/Dev/terraform/consul-terraform-sync/inputs.tf"]
 }
 ```
- 5. Fill the **`inputs.tf`** file with required modules input and place it in the same directory as **`tasks.hcl`**. Currently the user must specify the **Cisco ACI** Tenant where the policy must be deployed, as well as the Service Redirection Policy name. You can use the example below.
+ 5. Fill the **`inputs.tf`** file with the required module input and place it in the same directory as **`tasks.hcl`**. Currently the user must specify the **Cisco ACI** Tenant where the policy must be deployed, as well as the Service Redirection Policy name. You can use the example below.
  ```terraform
-tenant_name="common"
-service_redirection_policy_prefix="consul-nia"
+tenant_name                       = "common"
+service_redirection_policy_prefix = "nia"
 ```
  6. Start consul-terraform-sync
 ```
