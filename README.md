@@ -174,6 +174,10 @@ module_output = {
     },
   ]
 }
+module_output2 = {
+  "consul-nia-app-svc" = "uni/tn-common/svcCont/svcRedirectPol-consul-nia-app-svc"
+  "consul-nia-web-svc" = "uni/tn-common/svcCont/svcRedirectPol-consul-nia-web-svc"
+}
 ```
 
 ## How does consul-terraform-sync work?
