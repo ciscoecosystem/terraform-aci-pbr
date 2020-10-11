@@ -19,7 +19,7 @@ If there is a missing feature or a bug - [open an issue ](https://github.com/Cis
 ## Caveats
 * Currently Consul nodes MAC address must be specified as `meta` in the Consul service definition
 * If the redirection policy becomes empty (no remaining healthy service), it is not deleted
-* All Consul services part of the same "Task" must be defined in the same ACI VRF
+* All Consul services part of the same "task" must be defined in the same ACI VRF
 
 **~>Note** This module only manages Redirection Policy lifecycle, it does not automate the creation of the Service-Graph temmplate and deployment.
 
