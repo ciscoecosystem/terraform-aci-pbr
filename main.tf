@@ -1,5 +1,5 @@
 locals {
-  #transposing map to get service name as key and service instances as attributes
+  #Transposing map to get service name as key and service instances as attributes
   service_as_key             = transpose({ for id, s in var.services : id => [s.name] })
   service_view               = { for id, s in var.services : id => { id = id, ip = (var.services[id].address == "" ? var.services[id].node_address : var.services[id].address), mac = s.meta.mac_address } }
   #Format module output to provide service instance information
@@ -18,7 +18,7 @@ data "aci_tenant" "this" {
 }
 
 resource "aci_service_redirect_policy" "this" {
-  #loop through the list of unique services that need to be created
+  #Loop through the list of unique services that need to be created
   for_each              = { for _, policy in distinct([for s in local.synthetic_payload : s.service_redirection_policy]) : policy => policy }
   tenant_dn             = data.aci_tenant.this.id
   name                  = each.value
@@ -28,7 +28,7 @@ resource "aci_service_redirect_policy" "this" {
 }
 
 resource "aci_destination_of_redirected_traffic" "this" {
-  #loop through the list of compute instances and map them to the corresponding service redirection policy and associated VIP
+  #Loop through the list of compute instances and map them to the corresponding service redirection policy and associated VIP
   for_each                   = { for _, s in local.synthetic_payload : s.id => s }
   dest_name                  = each.value.id
   service_redirect_policy_dn = aci_service_redirect_policy.this[each.value.service_redirection_policy].id
