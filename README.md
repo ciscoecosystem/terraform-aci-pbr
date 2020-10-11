@@ -135,7 +135,7 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 | Name | Description | Type | Default | Required |
 |------|-------------------------------------|------|---------|:--------:|
 | aci\_tenant | Cisco ACI Tenant name, e.g., prod_tenant. | `string` | common | yes |
-| service\_redirection\_policy\_prefix | Prefix for the service redirection policy that is created when the first service instance is declared in the Consul catalog. The format is `\<prefix\>-\<service-name\>-svc` | `string` |  | no |
+| service\_redirection\_policy\_prefix | Prefix for the service redirection policy that is created when the first service instance is declared in the Consul catalog. The format is `<prefix>-<service-name>-svc` | `string` |  | no |
 | services | Consul services monitored by consul-terraform-sync | <pre>map(<br>    object({<br>      id        = string<br>      name      = string<br>      address   = string<br>      port      = number<br>      meta      = map(string)<br>      tags      = list(string)<br>      namespace = string<br>      status    = string<br><br>      node                  = string<br>      node_id               = string<br>      node_address          = string<br>      node_datacenter       = string<br>      node_tagged_addresses = map(string)<br>      node_meta             = map(string)<br>    })<br>  )</pre> | n/a | yes |
 
 
