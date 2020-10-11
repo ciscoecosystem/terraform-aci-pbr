@@ -148,7 +148,7 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 
 example of module output:
 ```terraform
-module_output = {
+module_output1 = {
   "app" = [
     {
       "id" = "app1"
