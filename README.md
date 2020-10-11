@@ -20,7 +20,7 @@ If there is a missing feature or a bug - - [open an issue ](https://github.com/C
 * Currently Consul nodes MAC address must be specified as `meta` in the Consul service definition
 * If the redirection policy becomes empty (no remaining healthy service), it is not deleted
 
-**~> This module only manages Redirection Policy lifecycle, it does not automate the creation of the Service-Graph deployment.
+**~>Note** This module only manages Redirection Policy lifecycle, it does not automate the creation of the Service-Graph deployment.
 
 ## What is consul-terraform-sync?
 
