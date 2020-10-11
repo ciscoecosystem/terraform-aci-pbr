@@ -14,7 +14,7 @@ This module supports the following:
 * Create, Update and Delete Redirection Destination Policies (**vnsRedirectDest**)
 * Create and Update Service Redirection Policies (**vnsSvcRedirectPol**). 
 
-If there is a missing feature or a bug - - [open an issue ](https://github.com/CiscoDevNet/terraform-aci-autoscaling-nia/issues/new)
+If there is a missing feature or a bug - [open an issue ](https://github.com/CiscoDevNet/terraform-aci-autoscaling-nia/issues/new)
 
 ## Caveats
 * Currently Consul nodes MAC address must be specified as `meta` in the Consul service definition
