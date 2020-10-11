@@ -22,4 +22,4 @@ variable "services" {
 }
 
 variable "tenant_name" {}
-variable "service_redirection_policy_name" {}
+variable "service_redirection_policy_prefix" {}

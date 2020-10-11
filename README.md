@@ -16,6 +16,12 @@ This module supports the following:
 
 If there is a missing feature or a bug - - [open an issue ](https://github.com/CiscoDevNet/aci-nia-autoscaling/issues/new)
 
+## Caveats
+* Currently Consul nodes MAC address must be specified as `meta` in the Consul service definition
+* If the redirection policy becomes empty (no remaining healthy service), it is not deleted
+
+**~> This module only manages Redirection Policy lifecycle, it does not automate the creation of the Service-Graph deployment.
+
 ## What is consul-terraform-sync?
 
 The **consul-terraform-sync** runs as a daemon that enables a **publisher-subscriber** paradigm between **Consul** and **Cisco ACI** to support **Network Infrastructure Automation (NIA)**. 
@@ -38,7 +44,8 @@ Please refer to this [link (to be updated)](https://www.consul.io/docs/download-
 
 | Name | Version |
 |------|---------|
-| aci | >= 0.4.1 |
+| aci | >= 0.4.1 |  
+
 
 ## Compatibility
 This module is meant for use with **consul-terraform-sync >= 0.1.0** and **Terraform >= 0.13** and **Cisco ACI versions >= 4.2**
@@ -128,7 +135,7 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 | Name | Description | Type | Default | Required |
 |------|-------------------------------------|------|---------|:--------:|
 | aci\_tenant | Cisco ACI Tenant name, e.g., prod_tenant. | `string` | common | yes |
-| service\_redirection\_policy\_name | Name of the service redirection policy that is created when the first service instance is declared in the Consul catalog. | `string` |  | no |
+| service\_redirection\_policy\_prefix | Prefix for the service redirection policy that is created when the first service instance is declared in the Consul catalog. The format is \<prefix\>-\<service-name\>-svc | `string` |  | no |
 | services | Consul services monitored by consul-terraform-sync | <pre>map(<br>    object({<br>      id        = string<br>      name      = string<br>      address   = string<br>      port      = number<br>      meta      = map(string)<br>      tags      = list(string)<br>      namespace = string<br>      status    = string<br><br>      node                  = string<br>      node_id               = string<br>      node_address          = string<br>      node_datacenter       = string<br>      node_tagged_addresses = map(string)<br>      node_meta             = map(string)<br>    })<br>  )</pre> | n/a | yes |
 
 
@@ -136,7 +143,37 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 
 | Name | Description |
 |------|-------------|
-| workload_pool | Map that includes information about the created redirection destination policies, namely instance name, service name, IP and MAC addresses.  |
+| workload_pool | Map that includes information about the created redirection destination policies, namely redirection destination names, service names, IP and MAC addresses.  |
+
+example of module output:
+```terraform
+module_output = {
+  "app" = [
+    {
+      "id" = "app1"
+      "ip" = "172.33.2.8"
+      "mac" = "F4:14:83:E9:BE:85"
+    },
+  ]
+  "web" = [
+    {
+      "id" = "web0"
+      "ip" = "172.31.43.78"
+      "mac" = "CE:65:9E:1D:6A:DF"
+    },
+    {
+      "id" = "web1"
+      "ip" = "172.31.51.85"
+      "mac" = "F1:CC:A2:25:FE:07"
+    },
+    {
+      "id" = "web3"
+      "ip" = "192.168.128.17"
+      "mac" = "2E:10:45:0D:FA:EB"
+    },
+  ]
+}
+```
 
 ## How does consul-terraform-sync work?
 
