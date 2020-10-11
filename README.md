@@ -144,6 +144,7 @@ $ consul-terraform-sync -config-dir <path_to_configuration_directory>
 | Name | Description |
 |------|-------------|
 | workload_pool | Map that includes information about the created redirection destination policies, namely redirection destination names, service names, IP and MAC addresses.  |
+| service_redirection_artifact | Map that includes name and Dn of the created ACI Redirection Policies |
 
 example of module output:
 ```terraform

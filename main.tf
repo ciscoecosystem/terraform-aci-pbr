@@ -1,9 +1,10 @@
 locals {
-  service_as_key    = transpose({ for id, s in var.services : id => [s.name] })
-  service_view      = { for id, s in var.services : id => { id = id, ip = (var.services[id].address == "" ? var.services[id].node_address : var.services[id].address), mac = s.meta.mac_address } }
-  service_group     = { for name, ids in local.service_as_key : name => [for id in ids : local.service_view[id]] }
-  service_payload   = [for _, s in var.services : s]
-  synthetic_payload = [for s in local.service_payload : merge(s, { service_redirection_policy = format("%s-%s-svc", var.service_redirection_policy_prefix, s.name) })]
+  service_as_key             = transpose({ for id, s in var.services : id => [s.name] })
+  service_view               = { for id, s in var.services : id => { id = id, ip = (var.services[id].address == "" ? var.services[id].node_address : var.services[id].address), mac = s.meta.mac_address } }
+  service_group_output       = { for name, ids in local.service_as_key : name => [for id in ids : local.service_view[id]] }
+  service_payload            = [for _, s in var.services : s]
+  synthetic_payload          = [for s in local.service_payload : merge(s, { service_redirection_policy = format("%s-%s-svc", var.service_redirection_policy_prefix, s.name) })]
+  service_redirection_output = { for v in distinct(values(aci_service_redirect_policy.this)) : v.name => v.id }
 }
 
 data "aci_tenant" "this" {
