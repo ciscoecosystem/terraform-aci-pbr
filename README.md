@@ -247,7 +247,7 @@ If a task and is defined, one or more services are associated with the task, pro
 
            cert_name                       = var.cert_name
            private_key                     = var.private_key
-           service_redirection_policy_name = var.service_redirection_policy_name
+           service_redirection_policy_prefix = var.service_redirection_policy_prefix
            tenant_name                     = var.tenant_name
            url                             = var.url
            username                        = var.username
