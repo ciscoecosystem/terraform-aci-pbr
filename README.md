@@ -218,40 +218,36 @@ If a task and is defined, one or more services are associated with the task, pro
          # may not be preserved and could be clobbered by a subsequent update.
 
          terraform {
-           required_version = "~>0.13.0"
-           required_providers {
-             aci = {
-               source  = "CiscoDevNet/aci"
-               version = "0.4.1"
-             }
-           }
-           backend "consul" {
-             address = "172.23.189.57"
-             gzip    = true
-             path    = "consul-terraform-sync/terraform"
-           }
-         }
-
-         provider "aci" {
-           cert_name   = var.aci.cert_name
-           private_key = var.aci.private_key
-           url         = var.aci.url
-           username    = var.aci.username
-         }
-
-         # Automatically Scale ACI Service Redirection Destinations
-         module "aci-svc-scale" {
-           source   = "CiscoDevNet/aci-nia-autoscaling"
-           version  = "0.0.1"
-           services = var.services
-
-           cert_name                       = var.cert_name
-           private_key                     = var.private_key
-           service_redirection_policy_prefix = var.service_redirection_policy_prefix
-           tenant_name                     = var.tenant_name
-           url                             = var.url
-           username                        = var.username
-         }
+            required_version = "~>0.13.0"
+            required_providers {
+              aci = {
+                source  = "CiscoDevNet/aci"
+                version = "0.4.1"
+              }
+            }
+            backend "consul" {
+              address = "172.23.189.57"
+              gzip    = true
+              path    = "consul-terraform-sync/terraform"
+            }
+          }
+          
+          provider "aci" {
+            cert_name   = var.aci.cert_name
+            private_key = var.aci.private_key
+            url         = var.aci.url
+            username    = var.aci.username
+          }
+      
+      # Automatically Scale ACI Service Redirection Destinations
+      module "aci-svc-scale" {
+        source   = "CiscoDevNet/aci-nia-autoscaling"
+        version  = "0.0.1"
+        services = var.services
+      
+        service_redirection_policy_prefix = var.service_redirection_policy_prefix
+        tenant_name                       = var.tenant_name
+      }
          
       * **variables.tf:**
         * This is variables.tf file defined in the module
