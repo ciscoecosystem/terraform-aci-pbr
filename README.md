@@ -114,7 +114,7 @@ task {
  5. Fill the **`inputs.tf`** file with required modules input and place it in the same directory as **`tasks.hcl`**. Currently the user must specify the **Cisco ACI** Tenant where the policy must be deployed, as well as the Service Redirection Policy name. You can use the example below.
  ```terraform
 tenant_name="common"
-service_redirection_policy_name="nia-svc-redirect-policy"
+service_redirection_policy_prefix="consul-nia"
 ```
  6. Start consul-terraform-sync
 ```
