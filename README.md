@@ -55,7 +55,7 @@ In order to use this module, you will need to install **consul-terraform-sync**,
 
 The users can subscribe to the services in the consul catalog and define the Terraform module which will be executed when there are any updates to the subscribed services using a **"task"**.
 
-**~> Note:** It is recommended to have the [consul-terraform-sync config guide](https://www.consul.io/docs/nia] for reference.  
+**~> Note:** It is recommended to have the [consul-terraform-sync config guide](https://www.consul.io/docs/nia) for reference.  
 1. Download the **consul-terraform-sync** on a node which is highly available (preferably, a node running a consul client)
 2. Add **consul-terraform-sync** to the PATH on that node
 3. Check the installation
