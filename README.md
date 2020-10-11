@@ -70,7 +70,7 @@ The users can subscribe to the services in the consul catalog and define the Ter
 log_level = "debug"
 
 consul {
-  address = "172.23.189.57"
+  address = "172.23.189.57:8500"
 }
 
 driver "terraform" {
